@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head></h:head>
+	<h:body>
+		<h:form id="form_cad">
+			
+			<p:outputLabel value="Códigos para consulta no Web Service: 1069 / 609 / 604"/>
+			<br />
+			<p:outputLabel value="Informe o Código da Disciplina"/>
+			<p:inputText value="#{ConsultaMB.codigo}" />
+			<p:commandButton value="Consultar" action="#{ConsultaMB.consulta}" update="form_cad" />
+			
+			<p:dataTable var="d" value="#{ConsultaMB.list}">
+				<p:column headerText="Nome">#{d.nome}</p:column>
+				<p:column headerText="Professor">#{d.professores.nome}</p:column>
+				<p:column headerText="Carga Horária">#{d.cargaHoraria}</p:column>
+			</p:dataTable>
+			
+		</h:form>	
+	</h:body>
+</html>
